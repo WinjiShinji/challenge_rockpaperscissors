@@ -1,0 +1,178 @@
+/* ---- Google Font Import ---- */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+/* ---- Variables ---- */
+:root {
+  /* Primary */
+  --scissorsColor: hsl(40, 84%, 53%);
+  --paperColor: hsl(230, 89%, 65%);
+  --rockColor: hsl(349, 70%, 56%);
+
+  /* Neutral */
+  --darkText: hsl(229, 25%, 31%);
+  --scoreText: hsl(229, 64%, 46%);
+  --headerOutline: hsl(217, 16%, 45%);
+  
+  /* Background */
+  --radialGradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+}
+
+/* ---- Reset Defaults ---- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- Defaults ---- */
+body {
+  font-family: 'Barlow Semi Condensed', sans-serif; /* Google Font */
+  font-weight: 600;
+  line-height: 1.5;
+  min-height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  overflow-y: hidden;
+  background-image: radial-gradient(var(--radialGradient));
+}
+
+main {
+  --mainWidth: 300px;
+  min-width: var(--mainWidth);
+  max-width: var(--mainWidth);
+  width: var(--mainWidth);
+  height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+section {
+  width: 100%;
+}
+
+/* ---- Header ---- */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem;
+  margin: 1rem;
+  border: 3px solid var(--headerOutline);
+  border-radius: 8px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+header > img {
+  height: 3rem;
+}
+
+header > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  background-color: white;
+  width: 6rem;
+}
+
+header > div:hover,
+header > div:focus {
+  cursor: pointer;
+  outline: 3px solid gray;
+}
+
+header > div > p:first-child {
+  color: var(--scoreText);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+header > div > p:last-child {
+  color: var(--darkText);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/* ---- Footer ---- */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 3rem;
+  width: 100%;
+}
+
+footer > button {
+  padding: 0.5rem 2rem;
+  border: 1px solid white;
+  border-radius: 0.5em;
+
+  color: white;
+  background: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+}
+
+footer > button:hover,
+footer > button:focus {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+/* ---- Game Section ---- */
+section {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+
+/* ---- Icon Defaults ---- */
+.icon_paper,
+.icon_rock,
+.icon_scissors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 4rem;
+
+  border: 0.5em solid var(--iconColor);
+  border-radius: 50%;
+  background-color: white;
+}
+
+.icon_paper {
+  --iconColor: var(--paperColor);
+}
+.icon_rock {
+  --iconColor: var(--rockColor);
+}
+.icon_scissors {
+  --iconColor: var(--scissorsColor);
+}
+
+
+
+
