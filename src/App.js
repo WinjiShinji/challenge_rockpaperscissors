@@ -1,9 +1,9 @@
-import logo from './images/logo.svg'
-import { useReducer } from 'react';
-import reducer from './logic/reducer';
-import GameComponent from './components/GameComponent'
-import GameResult from './components/GameResult'
-import { opponentRNG } from './logic/gameLogic'
+import logo from "./images/logo.svg"
+import { useReducer } from "react"
+import reducer from "./logic/reducer"
+import GameComponent from "./components/GameComponent"
+import GameResult from "./components/GameResult"
+import { opponentRNG } from "./logic/gameLogic"
 
 function App() {
   // Initial Reducer State //
@@ -15,58 +15,44 @@ function App() {
     result: null,
     score: 0,
     showRules: false,
-    playAgain: false
+    playAgain: false,
   })
 
   // Component Functions //
   const resetScore = () => {
-    dispatch({ type: 'score', payload: 0 })
+    dispatch({ type: "score", payload: 0 })
   }
 
   const handleKeyPress = (event) => {
-    if(event.key === 'Enter') {
+    if (event.key === "Enter") {
       resetScore()
     }
   }
 
   return (
-    <main className="App">
+    <main className="app">
       <header>
         <img src={logo} alt="" />
-        <div 
-          tabIndex={0}
-          onKeyDown={handleKeyPress}
-          onClick={resetScore}
-        >
+        <div tabIndex={0} onKeyDown={handleKeyPress} onClick={resetScore}>
           <p>Score</p>
           <p>{state.score}</p>
         </div>
       </header>
-      <section>
-        <GameComponent
-          state={state}
-          dispatch={dispatch}
-        />
-      </section>
-      <div>
-        <GameResult 
-          state={state} 
-          dispatch={dispatch} 
-        />
-      </div>
+      <GameComponent state={state} dispatch={dispatch} />
+      <GameResult state={state} dispatch={dispatch} />
       <footer>
         <button
           onClick={() => {
             state.showRules === false
-            ? dispatch({ type: 'showRules', payload: true })
-            : dispatch({ type: 'showRules', payload: false })
+              ? dispatch({ type: "showRules", payload: true })
+              : dispatch({ type: "showRules", payload: false })
           }}
         >
           Rules
         </button>
       </footer>
     </main>
-  );
+  )
 }
 
-export default App;
+export default App
